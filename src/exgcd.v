@@ -19,10 +19,12 @@ reg [1:0] current_state;
 reg	[1:0] next_state;
 reg [7:0] a;
 reg [7:0] b;
-reg [7:0] x;
-reg [7:0] y;
+
 reg [7:0] m;
 reg [7:0] n;
+reg [7:0] x;
+reg [7:0] y;
+
 reg [7:0] d;
 reg [7:0] tmp;
 reg [7:0] tmpm;
@@ -45,10 +47,10 @@ end
 always @(*) begin : calculate
 	if(~rst_n) begin
  		tmp = 8'b0;
- 		x = 8'b1;
- 		y = 8'b0;
- 		m = 8'b0;
- 		n = 8'b1;
+ 		x = 8'b0;
+ 		y = 8'b1;
+ 		m = 8'b1;
+ 		n = 8'b0;
  		next_state = IDLE;
 	end else begin
 		 case (current_state)
